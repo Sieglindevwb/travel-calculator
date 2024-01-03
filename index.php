@@ -7,6 +7,8 @@
     <link rel= "stylesheet" href= "./css/style.css">
 </head>
 <body>
+    <h1>Next stop: undecided</h1>
+    <p>Convert your money</p>
     <form action="includes/formhandler.php" method="post">
          <label for="amount">Please enter the amount</label>
         <input id="amount" type="text" name="amount" placeholder="Type here...">
