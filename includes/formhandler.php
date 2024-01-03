@@ -36,13 +36,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else if ($selectMoney == "dollar" && $convertMoney == "euros") {
         $result = "$amount Dollars contain $convertDollarToEuro Euros";
     } else if ($selectMoney == "euros" && $convertMoney == "yen") {
-        $result = "$amount Euros contain $convertDollarToEuro Yen";
+        $result = "$amount Euros contain $convertEuroToYen Yen";
     } else if ($selectMoney == "yen" && $convertMoney == "euros") {
-        $result = "$amount Yen contain $convertDollarToEuro Euros";
+        $result = "$amount Yen contain $convertYenToEuro Euros";
     } else if ($selectMoney == "dollar" && $convertMoney == "yen") {
-        $result = "$amount Dollar contain $convertDollarToEuro Yen";
+        $result = "$amount Dollar contain $convertDollarToYen Yen";
     } else if ($selectMoney == "yen" && $convertMoney == "dollar") {
-        $result = "$amount Yen contain $convertDollarToEuro Dollar";
+        $result = "$amount Yen contain $convertYenToDollar Dollar";
     } else {
         $result = "Please select another currency to be converted";
     } 
