@@ -6,7 +6,7 @@
     <title>The Dream</title>
 </head>
 <body>
-    <form action="">
+    <form action="includes/formhandler.php" method="post">
          <label for="amount">Please enter the amount</label>
         <input id="amount" type="text" name="amount" placeholder="Type here...">
 
@@ -15,7 +15,7 @@
             <option value="none">None</option>
             <option value="dollar">Dollar</option>
             <option value="euros">Euros</option>
-            <option value="rupees">Rupees</option>
+            <option value="yen">Yen</option>
         </select>
 
         <label for="convertMoney">Convert into:</label>
@@ -23,7 +23,7 @@
             <option value="none">None</option>
             <option value="dollar">Dollar</option>
             <option value="euros">Euros</option>
-            <option value="rupees">Rupees</option>
+            <option value="yen">Yen</option>
         </select>
 
         <button type="submit">Submit</button>
