@@ -7,6 +7,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $selectMoney = htmlspecialchars($_POST["selectMoney"]);
      $convertMoney = htmlspecialchars($_POST["convertMoney"]);
 
+     if (!is_numeric($amount)) {
+        echo "Please enter a valid numeric amount.";
+        header("Location: ../index.php");
+        exit();
+    }
+
      $eurosToDollars=1.09;
      $dollarsToEuros=0.91;
      $eurosToYen=156.05;
@@ -23,21 +29,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      $convertYenToDollar=$amount*$yenToDollars;
      $convertYenToEuro=$amount*$yenToEuros;
 
+     $result = "";
     
     if ($selectMoney == "euros" && $convertMoney == "dollar") {
-        echo "$amount Euros contain $convertEuroToDollar Dollars";
+        $result = "$amount Euros contain $convertEuroToDollar Dollars";
     } else if ($selectMoney == "dollar" && $convertMoney == "euros") {
-        echo "$amount Dollars contain $convertDollarToEuro Euros";
+        $result = "$amount Dollars contain $convertDollarToEuro Euros";
     } else if ($selectMoney == "euros" && $convertMoney == "yen") {
-        echo "$amount Euros contain $convertDollarToEuro Yen";
+        $result = "$amount Euros contain $convertDollarToEuro Yen";
     } else if ($selectMoney == "yen" && $convertMoney == "euros") {
-        echo "$amount Yen contain $convertDollarToEuro Euros";
+        $result = "$amount Yen contain $convertDollarToEuro Euros";
     } else if ($selectMoney == "dollar" && $convertMoney == "yen") {
-        echo "$amount Dollar contain $convertDollarToEuro Yen";
+        $result = "$amount Dollar contain $convertDollarToEuro Yen";
     } else if ($selectMoney == "yen" && $convertMoney == "dollar") {
-        echo "$amount Yen contain $convertDollarToEuro Dollar";
+        $result = "$amount Yen contain $convertDollarToEuro Dollar";
     } else {
-        echo "Please select another currency to be converted";
-    }
+        $result = "Please select another currency to be converted";
+    } 
 
+    header("Location: ../index.php?result=" . urlencode($result));
+    exit();
+
+ } else {
+    // Handle cases where the form is not submitted via POST
+    echo "Invalid request method.";
+    header("Location: ../index.php");
+    exit();
  }

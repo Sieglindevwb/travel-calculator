@@ -28,5 +28,15 @@
 
         <button type="submit">Submit</button>
     </form>
+
+    <?php
+    // index.php
+
+    // Check if a result parameter is present in the URL
+    if (isset($_GET["result"])) {
+        $result = htmlspecialchars($_GET["result"]);
+        echo "<div>Result: $result</div>";
+    }
+    ?>
 </body>
 </html>
